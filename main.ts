@@ -3,8 +3,9 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-const ENTRY =
-  "My smartwatch congratulated me on a 3 a.m. workout — it was just me sleepwalking to the fridge for the third time.";
+function buildEntryLine(): string {
+  return "My smartwatch congratulated me on a 3 a.m. workout — it was just me sleepwalking to the fridge for the third time.";
+}
 
 function resolveOutputPath(): string {
   const makefunDir = process.env.MAKEFUN_OUTPUT_DIR;
@@ -17,4 +18,4 @@ function resolveOutputPath(): string {
 
 const outDir = resolveOutputPath();
 mkdirSync(outDir, { recursive: true });
-writeFileSync(join(outDir, "entry.txt"), ENTRY, "utf8");
+writeFileSync(join(outDir, "entry.txt"), buildEntryLine(), "utf8");
